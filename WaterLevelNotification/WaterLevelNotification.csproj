@@ -4,23 +4,130 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0-windows10.0.17763.0</TargetFramework>
     <UseWPF>true</UseWPF>
-    <ApplicationIcon />
+    <ApplicationIcon>logo.ico</ApplicationIcon>
     <StartupObject />
   </PropertyGroup>
   
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetPlatformVersion>10.0</TargetPlatformVersion>
+    <AssemblyName>Water Level Notification</AssemblyName>
   </PropertyGroup>
+  
+  <ItemGroup>
+    <None Remove="Images\logo.ico" />
+    <None Remove="Images\logo.png" />
+    <None Remove="Resources\Fonts\Noto\NotoSans-Bold.ttf" />
+    <None Remove="Resources\Fonts\Noto\NotoSans-BoldItalic.ttf" />
+    <None Remove="Resources\Fonts\Noto\NotoSans-Italic.ttf" />
+    <None Remove="Resources\Fonts\Noto\NotoSans-Regular.ttf" />
+    <None Remove="Resources\Fonts\Roboto\Roboto-Black.ttf" />
+    <None Remove="Resources\Fonts\Roboto\Roboto-BlackItalic.ttf" />
+    <None Remove="Resources\Fonts\Roboto\Roboto-Bold.ttf" />
+    <None Remove="Resources\Fonts\Roboto\Roboto-BoldItalic.ttf" />
+    <None Remove="Resources\Fonts\Roboto\Roboto-Italic.ttf" />
+    <None Remove="Resources\Fonts\Roboto\Roboto-Light.ttf" />
+    <None Remove="Resources\Fonts\Roboto\Roboto-LightItalic.ttf" />
+    <None Remove="Resources\Fonts\Roboto\Roboto-Medium.ttf" />
+    <None Remove="Resources\Fonts\Roboto\Roboto-MediumItalic.ttf" />
+    <None Remove="Resources\Fonts\Roboto\Roboto-Regular.ttf" />
+    <None Remove="Resources\Fonts\Roboto\Roboto-Thin.ttf" />
+    <None Remove="Resources\Fonts\Roboto\Roboto-ThinItalic.ttf" />
+    <None Remove="Resources\Fonts\Roboto\RobotoCondensed-Bold.ttf" />
+    <None Remove="Resources\Fonts\Roboto\RobotoCondensed-BoldItalic.ttf" />
+    <None Remove="Resources\Fonts\Roboto\RobotoCondensed-Italic.ttf" />
+    <None Remove="Resources\Fonts\Roboto\RobotoCondensed-Light.ttf" />
+    <None Remove="Resources\Fonts\Roboto\RobotoCondensed-LightItalic.ttf" />
+    <None Remove="Resources\Fonts\Roboto\RobotoCondensed-Regular.ttf" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Resource Include="Resources\Fonts\Noto\NotoSans-Bold.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Fonts\Noto\NotoSans-BoldItalic.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Fonts\Noto\NotoSans-Italic.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Fonts\Noto\NotoSans-Regular.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Fonts\Roboto\Roboto-Black.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Fonts\Roboto\Roboto-BlackItalic.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Fonts\Roboto\Roboto-Bold.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Fonts\Roboto\Roboto-BoldItalic.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Fonts\Roboto\Roboto-Italic.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Fonts\Roboto\Roboto-Light.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Fonts\Roboto\Roboto-LightItalic.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Fonts\Roboto\Roboto-Medium.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Fonts\Roboto\Roboto-MediumItalic.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Fonts\Roboto\Roboto-Regular.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Fonts\Roboto\Roboto-Thin.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Fonts\Roboto\Roboto-ThinItalic.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Fonts\Roboto\RobotoCondensed-Bold.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Fonts\Roboto\RobotoCondensed-BoldItalic.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Fonts\Roboto\RobotoCondensed-Italic.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Fonts\Roboto\RobotoCondensed-Light.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Fonts\Roboto\RobotoCondensed-LightItalic.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Fonts\Roboto\RobotoCondensed-Regular.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <EmbeddedResource Include="Images\logo.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <Resource Include="Images\logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Windows.Forms">
+      <HintPath>C:\Program Files (x86)\dotnet\shared\Microsoft.WindowsDesktop.App\3.1.23\System.Windows.Forms.dll</HintPath>
+    </Reference>
     <Reference Include="Windows" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="4.4.0" />
     <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications" Version="7.0.2" />
     <PackageReference Include="System.IO.Ports" Version="6.0.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\" />
   </ItemGroup>
 </Project>

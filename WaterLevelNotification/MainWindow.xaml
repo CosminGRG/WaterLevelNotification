@@ -5,9 +5,61 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WaterLevelNotificationButWpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Button Name="SendNotif" Content="SendNotif" Click="SendNotif_Click" Margin="400,0,0,0"></Button>
-        <Button Name="SendSerial" Content="SendSerial" Click="SendSerial_Click" Margin="0,0,400,0"></Button>
+        Title="Water Level Notifier" Height="300" Width="450"
+        >
+
+    <Window.ResizeMode>CanMinimize</Window.ResizeMode>
+    <Window.Resources>
+        <FontFamily x:Key="Roboto Medium" >/Resources/Fonts/Roboto/#Roboto Medium</FontFamily>
+        <FontFamily x:Key="Roboto Default" >/Resources/Fonts/Roboto/#Roboto</FontFamily>
+
+        <ContextMenu Background="#FF252526" Width="auto" Height="auto" x:Key="NotifierContextMenu" Placement="MousePoint">
+            <MenuItem Foreground="White" Width="auto" FontFamily="{StaticResource Roboto Default}" Header="Open" Click="Menu_Open"/>
+            <MenuItem Foreground="White" Width="auto" FontFamily="{StaticResource Roboto Default}" Header="Close" Click="Menu_Close"/>
+        </ContextMenu>
+    </Window.Resources>
+    <Grid Margin="0,0,0,0">
+        <Menu x:Name="menu" Background="#7d4dcd" Height="25" VerticalAlignment="Top">
+            <MenuItem Background="#5b2d96" Foreground="White" Header="About" Height="25" Width="auto">
+                <MenuItem Foreground="Black" Header="Details">
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        <TextBlock FontFamily="{StaticResource Roboto Medium}" x:Name="textBlock" HorizontalAlignment="Left" Margin="10,26,0,0" Text="Select your options below." TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="145" FontWeight="Normal"/>
+        <Label FontFamily="{StaticResource Roboto Medium}" Content="Operation mode: " HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Margin="31,51,0,0"/>
+        <ComboBox FontFamily="{StaticResource Roboto Default}" SelectionChanged="OperationComboBox_SelectionChanged" SelectedValuePath="Tag" x:Name="OperationComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="45,74,0,0" Width="130">
+            <ComboBoxItem IsSelected="True" Tag="10">Normal operation</ComboBoxItem>
+            <ComboBoxItem Tag="20">Above threshold</ComboBoxItem>
+            <ComboBoxItem Tag="30">Under threshold</ComboBoxItem>
+        </ComboBox>
+        <Label FontFamily="{StaticResource Roboto Medium}" Content="Threshold:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Margin="31,117,0,0"/>
+        <ComboBox FontFamily="{StaticResource Roboto Default}" SelectedValuePath="Tag" x:Name="ThresholdComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="45,142,0,0" Width="130">
+            <ComboBoxItem Tag="0">0 cm</ComboBoxItem>
+            <ComboBoxItem IsSelected="True" Tag="1">1 cm</ComboBoxItem>
+            <ComboBoxItem Tag="2">2 cm</ComboBoxItem>
+            <ComboBoxItem Tag="3">3 cm</ComboBoxItem>
+            <ComboBoxItem Tag="4">4 cm</ComboBoxItem>
+        </ComboBox>
+        <Button Click="ApplyButton_Click" Content="Apply" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="45,198,0,0" RenderTransformOrigin="1.041,2.044" Width="130"/>
+        <Label FontFamily="{StaticResource Roboto Medium}" Content="Disable notifications for:" VerticalAlignment="Top" Height="25" Margin="0,72,59,0" HorizontalAlignment="Right" Width="140"/>
+        <Button
+          Click="SnoozeButton_Click"
+          Style="{StaticResource MaterialDesignPaperDarkButton}"
+          Content="Snooze"
+          IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Margin="0,144,68,0" Height="32" VerticalAlignment="Top" HorizontalAlignment="Right" Width="112" 
+        />
+        <ComboBox FontFamily="{StaticResource Roboto Default}" SelectedValuePath="Tag" x:Name="SnoozeComboBox" VerticalAlignment="Top" Margin="0,97,59,0" HorizontalAlignment="Right" Width="130">
+            <ComboBoxItem IsSelected="True" Tag="5">5 minutes</ComboBoxItem>
+            <ComboBoxItem Tag="10">10 minutes</ComboBoxItem>
+            <ComboBoxItem Tag="30">30 minutes</ComboBoxItem>
+            <ComboBoxItem Tag="60">60 minutes</ComboBoxItem>
+        </ComboBox>
+        <Label FontFamily="{StaticResource Roboto Medium}" Content="Communication status: " Margin="0,191,63,0" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Width="136"/>
+        <TextBlock FontFamily="{StaticResource Roboto Default}" x:Name="commStatus" Margin="0,195,10,0" Text="Waiting" FontWeight="Normal" TextAlignment="Left" HorizontalAlignment="Right" Width="53" Height="20" VerticalAlignment="Top"/>
+        <Label FontFamily="{StaticResource Roboto Medium}" Content="Message status: " Margin="0,216,99,0" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Width="100"/>
+        <TextBlock FontFamily="{StaticResource Roboto Default}" x:Name="msgStatus" Margin="0,220,36,0" Text="Waiting" VerticalAlignment="Top" Height="20" FontWeight="Normal" TextAlignment="Left" HorizontalAlignment="Right" Width="63"/>
+        <Label FontFamily="{StaticResource Roboto Medium}" Content="Notifications: " Margin="0,48,118,0" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Width="81"/>
+        <TextBlock FontFamily="{StaticResource Roboto Default}" Foreground="Green" x:Name="notificationStatus" Margin="0,52,54,0" Text="Enabled" VerticalAlignment="Top" Height="20" FontWeight="Normal" TextAlignment="Left" HorizontalAlignment="Right" Width="64"/>
+
     </Grid>
 </Window>
