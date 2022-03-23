@@ -55,11 +55,11 @@
             <ComboBoxItem Tag="60">60 minutes</ComboBoxItem>
         </ComboBox>
         <Label FontFamily="{StaticResource Roboto Medium}" Content="Communication status: " Margin="0,191,63,0" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Width="136"/>
-        <TextBlock FontFamily="{StaticResource Roboto Default}" x:Name="commStatus" Margin="0,195,10,0" Text="Waiting" FontWeight="Normal" TextAlignment="Left" HorizontalAlignment="Right" Width="53" Height="20" VerticalAlignment="Top"/>
+        <TextBlock FontFamily="{StaticResource Roboto Default}" x:Name="commStatus" Margin="0,195,10,0" Text="Waiting" FontWeight="Bold" TextAlignment="Left" HorizontalAlignment="Right" Width="53" Height="20" VerticalAlignment="Top"/>
         <Label FontFamily="{StaticResource Roboto Medium}" Content="Message status: " Margin="0,216,99,0" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Width="100"/>
-        <TextBlock FontFamily="{StaticResource Roboto Default}" x:Name="msgStatus" Margin="0,220,36,0" Text="Waiting" VerticalAlignment="Top" Height="20" FontWeight="Normal" TextAlignment="Left" HorizontalAlignment="Right" Width="63"/>
+        <TextBlock FontFamily="{StaticResource Roboto Default}" x:Name="msgStatus" Margin="0,220,36,0" Text="Waiting" VerticalAlignment="Top" Height="20" FontWeight="Bold" TextAlignment="Left" HorizontalAlignment="Right" Width="63"/>
         <Label FontFamily="{StaticResource Roboto Medium}" Content="Notifications: " Margin="0,48,118,0" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Width="81"/>
-        <TextBlock FontFamily="{StaticResource Roboto Default}" Foreground="Green" x:Name="notificationStatus" Margin="0,52,54,0" Text="Enabled" VerticalAlignment="Top" Height="20" FontWeight="Normal" TextAlignment="Left" HorizontalAlignment="Right" Width="64"/>
+        <TextBlock FontFamily="{StaticResource Roboto Default}" Foreground="#5b2d96" x:Name="notificationStatus" Margin="0,52,54,0" Text="Enabled" VerticalAlignment="Top" Height="20" FontWeight="Bold" TextAlignment="Left" HorizontalAlignment="Right" Width="64"/>
 
     </Grid>
 </Window>

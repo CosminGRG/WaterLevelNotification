@@ -2,7 +2,7 @@
 #define sensorReadPin A0
 #define ledPin        3
 
-#define sensor0CmSubmerged 0
+#define sensor0CmSubmerged 15
 #define sensor1CmSubmerged 220
 #define sensor2CmSubmerged 300
 #define sensor3CmSubmerged 355
@@ -17,6 +17,7 @@ uint16_t analogValue;
 uint16_t analogThresholdTable[5] = { sensor0CmSubmerged, sensor1CmSubmerged, sensor2CmSubmerged, sensor3CmSubmerged, sensor4CmSubmerged };
 uint8_t operationMode = 10;
 uint8_t threshold = 2;
+uint8_t responseBuffer[3];
 
 uint16_t currentMillis = 0;
 uint16_t sendTimeMillis = 0;
@@ -134,46 +135,46 @@ void loop()
   }
   
   analogValue = readSensor();
-
+  //Serial.println(analogValue);
   delay(400);
 }
 
 void normalOperation(uint16_t analogValue)
 {
-  uint8_t normalOpSendBuffer[2] = { 10, 0 };
+  responseBuffer[0] = NORMAL_OP;
   
   if ((analogValue > sensor0CmSubmerged) &&
       (analogValue < sensor1CmSubmerged))
   {
-    normalOpSendBuffer[1] = 1;
-    Serial.write(normalOpSendBuffer, 2);
+    responseBuffer[1] = 1;
+    Serial.write(responseBuffer, 2);
     sendTimeMillis = millis();
   }
   else if ((analogValue > sensor1CmSubmerged) &&
       (analogValue < sensor2CmSubmerged))
   {
-    normalOpSendBuffer[1] = 2;
-    Serial.write(normalOpSendBuffer, 2);
+    responseBuffer[1] = 2;
+    Serial.write(responseBuffer, 2);
     sendTimeMillis = millis();
   }
   else if ((analogValue > sensor2CmSubmerged) &&
       (analogValue < sensor3CmSubmerged))
   {
-    normalOpSendBuffer[1] = 3;
-    Serial.write(normalOpSendBuffer, 2);
+    responseBuffer[1] = 3;
+    Serial.write(responseBuffer, 2);
     sendTimeMillis = millis();
   }
   else if ((analogValue > sensor3CmSubmerged) &&
       (analogValue < sensor4CmSubmerged))
   {
-    normalOpSendBuffer[1] = 4;
-    Serial.write(normalOpSendBuffer, 2);
+    responseBuffer[1] = 4;
+    Serial.write(responseBuffer, 2);
     sendTimeMillis = millis();
   }
   else if (analogValue > sensor4CmSubmerged)
   {
-    normalOpSendBuffer[1] = 5;
-    Serial.write(normalOpSendBuffer, 2);
+    responseBuffer[1] = 5;
+    Serial.write(responseBuffer, 2);
     sendTimeMillis = millis();
   }
 }
@@ -182,7 +183,7 @@ void aboveThresholdOp(uint16_t analogValue, uint8_t thresholdIndex)
 {
   if (analogValue > analogThresholdTable[thresholdIndex])
   {
-    Serial.write(20);
+    Serial.write(ABOVE_THRESHOLD_OP);
   }
 }
 
@@ -190,7 +191,7 @@ void underThresholdOp(uint16_t analogValue, uint8_t thresholdIndex)
 {
   if (analogValue < analogThresholdTable[thresholdIndex])
   {
-    Serial.write(30);
+    Serial.write(UNDER_THRESHOLD_OP);
   }
 }
 

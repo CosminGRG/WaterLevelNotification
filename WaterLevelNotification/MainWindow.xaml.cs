@@ -96,7 +96,7 @@ namespace WaterLevelNotificationButWpf
 			if (SerialPortConnection.GetCommStatus() == true)
 			{
 				commStatus.Text = "Active";
-				commStatus.Foreground = Brushes.Green;
+				commStatus.Foreground = (Brush)(new BrushConverter().ConvertFrom("#5b2d96"));
 			}
 			else
 			{
@@ -118,7 +118,7 @@ namespace WaterLevelNotificationButWpf
 			bool status = SerialPortConnection.SendCommand(operationModeInt, thresholdInt);
 			if (status == true)
 			{
-				msgStatus.Foreground = Brushes.Green;
+				msgStatus.Foreground = (Brush)(new BrushConverter().ConvertFrom("#5b2d96"));
 				msgStatus.Text = "Sent";
 			}
 			else
@@ -148,7 +148,7 @@ namespace WaterLevelNotificationButWpf
 		{
 			SerialPortConnection.notificationsDisabled = false;
 			notificationStatus.Text = "Active";
-			notificationStatus.Foreground = Brushes.Green;
+			notificationStatus.Foreground = (Brush)(new BrushConverter().ConvertFrom("#5b2d96"));
 
 			dispatcherTimer.Stop();
 		}
