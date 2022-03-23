@@ -46,6 +46,7 @@ namespace WaterLevelNotificationButWpf
 				};
 
 			dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+
 			OperationComboBox.SelectionChanged += new SelectionChangedEventHandler(OperationComboBox_SelectionChanged);
 
 			if (OperationComboBox.SelectedIndex == 0)
