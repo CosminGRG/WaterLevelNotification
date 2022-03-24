@@ -60,6 +60,10 @@
         <TextBlock FontFamily="{StaticResource Roboto Default}" x:Name="msgStatus" Margin="0,220,36,0" Text="Waiting" VerticalAlignment="Top" Height="20" FontWeight="Bold" TextAlignment="Left" HorizontalAlignment="Right" Width="63"/>
         <Label FontFamily="{StaticResource Roboto Medium}" Content="Notifications: " Margin="0,48,118,0" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Width="81"/>
         <TextBlock FontFamily="{StaticResource Roboto Default}" Foreground="#5b2d96" x:Name="notificationStatus" Margin="0,52,54,0" Text="Enabled" VerticalAlignment="Top" Height="20" FontWeight="Bold" TextAlignment="Left" HorizontalAlignment="Right" Width="64"/>
-
+        <Separator Margin="0,25,0,2">
+            <Separator.LayoutTransform>
+                <RotateTransform Angle="90" />
+            </Separator.LayoutTransform>
+        </Separator>
     </Grid>
 </Window>
